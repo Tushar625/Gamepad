@@ -1,6 +1,8 @@
 #include <XInput.h>
 #include <Bounce2.h>
 
+// which button connected to which pin
+
 #define X_LEFT 1
 #define Y_LEFT 0
 #define X_RIGHT 2
@@ -143,6 +145,14 @@ void setup() {
     // put your setup code here, to run once:
 
     XInput.setAutoSend(false);
+
+    /*
+        The XInput.setAutoSend(bool enabled) function controls whether input reports are sent automatically
+        after every change. When enabled (true), any call that changes button states, joystick positions, or
+        triggers is immediately sent to the host. When disabled (false), changes are queued, and you must
+        manually call XInput.send() to update the host. Disabling auto-send is useful when updating multiple
+        controls at once, as it reduces USB traffic and ensures all changes are sent together in a single report.
+    */
 
     XInput.begin();
 
